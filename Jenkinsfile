@@ -1,9 +1,12 @@
 pipeline {
-    agent any
-
+	agent {
+		label 'windows'
+	}
     stages {
         stage('Build') {
             steps {
+				checkout scm
+				bat 'npm install'
                 echo 'Building..'
             }
         }
