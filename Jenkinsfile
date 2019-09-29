@@ -3,9 +3,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+			    echo 'Building..'
 				checkout scm
 				bat 'npm install'
-                echo 'Building..'
             }
         }
         stage('Test') {
@@ -16,6 +16,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+				bat 'npm run build'
             }
         }
     }
