@@ -11,13 +11,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'npm install'
+                bat 'npm install'
             }
         }
 
         stage('Deliver') {
             steps {
-                sh 'npm run build'
+                bat 'npm run build'
                 input message: 'Finished using the web site? (Click "Proceed" to continue)'
             }
         }
